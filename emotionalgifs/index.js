@@ -1,4 +1,5 @@
 const multipart = require("parse-multipart");
+const fetch = require("node-fetch");
 
 module.exports = async function (context, req) {
   context.log("JavaScript HTTP trigger function processed a request.");
@@ -20,3 +21,8 @@ module.exports = async function (context, req) {
     body: convertedResult,
   };
 };
+
+async function analyzeImage(img) {
+  const subscriptionKey = process.env.SUBSCRIPTIONKEY;
+  const uriBase = process.env.ENDPOINT + "/face/v1.0/detect";
+}
